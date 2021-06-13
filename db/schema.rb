@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_13_143445) do
+ActiveRecord::Schema.define(version: 2021_06_13_230039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_06_13_143445) do
     t.integer "num_of_cases"
     t.boolean "is_active"
     t.string "name"
-    t.bigint "location_id", null: false
+    t.bigint "location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["location_id"], name: "index_clusters_on_location_id"
