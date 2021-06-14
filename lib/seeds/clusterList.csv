@@ -1,4 +1,4 @@
-﻿empty ,cluster_name,num_of_cases,is_active,location_name,postal_code,address
+﻿empty,cluster_name,num_of_cases,is_active,location_name,postal_code,address
 ,Changi Airport,108,TRUE,Changi Airport,,"Airport Blvd., Singapore Changi Airport"
 ,Jem/Westgate,63,TRUE,Jem/Westgate,608549,"50 Jurong Gateway Rd, Singapore"
 ,MINDSville@Napiri,33,TRUE,MINDSville@Napiri,547533,"7 Lor Napiri, Singapore"
@@ -7,11 +7,11 @@
 ,McDonald’s delivery riders,23,TRUE,,,
 ,Changi Prison Complex,16,TRUE,Changi Prison Complex,507709,"982 Upper Changi Rd N, Singapore"
 ,506 Hougang Avenue 8,13,TRUE,506 Hougang Avenue 8,530506,"506 Hougang Ave 8, Singapore"
-,NTUC Foodfare,13,TRUE,NTUC Foodfare,540308,"308 Anchorvale Rd, #01-07 Anchorvale Place, Singapore"
+,NTUC Foodfare (#01-07 Anchorvale Place),13,TRUE,NTUC Foodfare (#01-07 Anchorvale Place),540308,"308 Anchorvale Rd, Singapore"
 ,Case 63806,10,TRUE,,,
 ,Jin Tai Tong Food Industries,9,TRUE,Jin Tai Tong Food Industries,415934,"1 Kaki Bukit Rd 1, Singapore"
 ,Case 63236,8,TRUE,,,
-,Atatcutz Singapore,8,TRUE,Atatcutz Singapore,469560,"348 Bedok Rd, #01-04 In front of Spize Restaurant Simpang, Singapore"
+,Atatcutz Singapore (#01-04 In front of Spize Restaurant Simpang),8,TRUE,Atatcutz Singapore (#01-04 In front of Spize Restaurant Simpang),469560,"348 Bedok Rd, Singapore"
 ,Case 63660,7,TRUE,,,
 ,Case 63714,7,TRUE,,,
 ,Case 63887,7,TRUE,,,
@@ -29,7 +29,7 @@
 ,Case 63376,4,TRUE,,,
 ,Case 63515,4,TRUE,,,
 ,Case 63941,4,TRUE,,,
-,Wok Hey (White Sands Mall),4,TRUE,Wok Hey (White Sands Mall),518457,"1 Pasir Ris Drive 3, #B1-K05, Singapore"
+,Wok Hey (White Sands Mall #B1-K05),4,TRUE,Wok Hey (White Sands Mall #B1-K05),518457,"1 Pasir Ris Drive 3,Singapore"
 ,White Sands,4,TRUE,White Sands,518457,"1 Pasir Ris Central Street 3, Singapore"
 ,Case 63290,3,TRUE,,,
 ,Case 63336,3,TRUE,,,
