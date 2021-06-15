@@ -14,8 +14,7 @@ class LocationsController < ApplicationController
         }
       end
     end
-  
 
-    @all_clusters = Cluster.all
+    @inactive_clusters = Cluster.where.not(location_id: nil).where(is_active: false)
   end
 end
