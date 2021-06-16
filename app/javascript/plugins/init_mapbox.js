@@ -16,8 +16,6 @@ const buildMap = (mapElement) => {
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl
   }));
-
-
   return map
 };
 
@@ -47,8 +45,22 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 12 });
 };
 
+const flyToPopUp = (map,cluster,flying)=>{
+  
+  map.on('moveend', (e)=>{
+    const popup =  new mapboxgl.Popup()
+    if(flying) {
+      popup
+        .setLngLat([cluster.dataset.lng, cluster.dataset.lat])
+        .setHTML(cluster.dataset.infowindow)
+        .addTo(map);
+    };
+  });
+};
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+  let flying = false;
 
   if (mapElement) {
     const map = buildMap(mapElement);
@@ -56,26 +68,50 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
 
-  const clusters = document.querySelectorAll(".cluster")
-  clusters.forEach((cluster)=>{
-    if (cluster.dataset.lat != ""){
-      cluster.addEventListener('click',(e)=>{
-        map.flyTo({
-          center: [
-            cluster.dataset.lng,
-            cluster.dataset.lat
-          ],
-          zoom: 16 ,
-          essential: true // this animation is considered essential with respect to prefers-reduced-motion
-          });
-      });
-    } 
-  });
-  
-  
- 
+    map.on('flystart', ()=>{
+      flying = true;
+    });
+    map.on('flyend', ()=>{
+      flying = false;
+    });
 
-  }
+    map.on('closeAllPopups', () => {
+      popup.remove();
+    });
+
+    const clusters = document.querySelectorAll(".cluster")
+    clusters.forEach((cluster)=>{
+      if (cluster.dataset.lat != ""){
+        cluster.addEventListener('click',(e)=>{
+          console.log(e);
+          const tooltip = document.getElementsByClassName('mapboxgl-popup');
+          if (tooltip.length) {
+            console.log(tooltip[0]);
+            tooltip[0].remove();
+          }
+        
+          map.flyTo({
+            center: [
+              cluster.dataset.lng,
+              cluster.dataset.lat
+            ],
+            zoom: 16 ,
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+          });
+          
+          map.fire('flystart'); 
+          flyToPopUp(map,cluster,flying);
+          map.fire('flyend');
+          
+          
+        });
+      } 
+    });
+    
+
+    
+
+  };
 
   
 };

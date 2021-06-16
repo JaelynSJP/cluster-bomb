@@ -1,20 +1,22 @@
 class LocationsController < ApplicationController
   def index
-    @locations = []
+    
     @active_clusters = Cluster.where.not(location_id: nil).where(is_active: true)
-    @active_clusters.each { |cluster| @locations << cluster.location }
    
-
-    @markers = @locations.map do |location|
-      unless location.latitude.nil? and location.longitude.nil?
+    @markers = @active_clusters.map do |cluster|
+      unless cluster.location.latitude.nil? and cluster.location.longitude.nil?
         {
-          lat: location.latitude,
-          lng: location.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { location: location }),
+          name: cluster.name,
+          num_of_cases: cluster.num_of_cases,
+          lat: cluster.location.latitude,
+          lng: cluster.location.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { cluster: cluster }),
           image_url: helpers.asset_url('bomb.png')
         }
       end
     end
+
+    
 
     @inactive_clusters = Cluster.where.not(location_id: nil).where(is_active: false)
   end

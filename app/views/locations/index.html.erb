@@ -1,28 +1,28 @@
 
 <div>
-  <div class="row" style="width: 100%; height: 700px">
+  <div class="row m-0">
     <div class="col-3">
       <div class="tab-card">
          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="active-cluster-tab" data-toggle="tab" href="#active-cluster" role="tab" aria-controls="active-cluster" aria-selected="true">Active Clusters (<%= @locations.size%>) </a>
+          <li class="nav-item" role="presentation"> <b></b>
+            <a class="nav-link active" id="active-cluster-tab" data-toggle="tab" href="#active-cluster" role="tab" aria-controls="active-cluster" aria-selected="true"><b>Active Clusters (<%= @active_clusters.size%>)</b> </a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" id="inactive-cluster-tab" data-toggle="tab" href="#inactive-cluster" role="tab" aria-controls="inactive-cluster" aria-selected="false">Inactive Clusters (<%= @inactive_clusters.size%>)</a>
+            <a class="nav-link" id="inactive-cluster-tab" data-toggle="tab" href="#inactive-cluster" role="tab" aria-controls="inactive-cluster" aria-selected="false"><b>Inactive Clusters (<%= @inactive_clusters.size%>)</b></a>
           </li>
         </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active p-3" id="active-cluster" role="tabpanel" aria-labelledby="active-cluster-tab">
-          <% @active_clusters.each_with_index do |cluster, index| %>
+          <%  @markers.each_with_index do |cluster, index| %>
             <div class="card-text row cluster-name ">
               <div class="col-1">
                 <p class=""><%= index + 1 %>.</p>
               </div>
               <div class="col-8">
-                <p class="cluster" data-lng=<%= cluster.location.longitude %> data-lat=<%= cluster.location.latitude %> ><%= cluster.name %></p>
+                <p class="cluster" data-lng=<%= cluster[:lng] %> data-lat=<%= cluster[:lat] %> data-infoWindow='<%= cluster[:info_window] %>' ><%= cluster[:name] %></p>
               </div>
               <div class="col-3 p-0">
-                <p class="text-right"><%= pluralize(cluster.num_of_cases, "case") %></p>
+                <p class="text-right"><%= pluralize(cluster[:num_of_cases], "case") %></p>
               </div>
             </div>
           <% end %>   
