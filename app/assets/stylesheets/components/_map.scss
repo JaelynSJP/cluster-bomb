@@ -1,13 +1,21 @@
-.mapboxgl-popup {
-  
-}
-
-.mapboxgl-popup-content {
-  
-  font-family: 'Open Sans', sans-serif;
-  
-}
-
 .red{
   color: #ce1313;
+}
+
+.nav-tabs {
+	.nav-link.active {
+		color: #167FFB;
+	}
+	.nav-item.show {
+		.nav-link {
+			color: #167FFB;
+		}
+	}
+}
+
+.nav-tabs{
+  a{
+    color: #495057;
+  }
+  
 }

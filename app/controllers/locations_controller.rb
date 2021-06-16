@@ -1,8 +1,6 @@
 class LocationsController < ApplicationController
   def index
-    
     @active_clusters = Cluster.where.not(location_id: nil).where(is_active: true)
-   
     @markers = @active_clusters.map do |cluster|
       unless cluster.location.latitude.nil? and cluster.location.longitude.nil?
         {
@@ -15,9 +13,6 @@ class LocationsController < ApplicationController
         }
       end
     end
-
-    
-
     @inactive_clusters = Cluster.where.not(location_id: nil).where(is_active: false)
   end
 end

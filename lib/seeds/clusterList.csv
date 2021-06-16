@@ -1,9 +1,10 @@
 ﻿empty,cluster_name,num_of_cases,is_active,location_name,postal_code,address
 ,Changi Airport,108,TRUE,Changi Airport,,"Airport Blvd., Singapore Changi Airport"
 ,Jem/Westgate,63,TRUE,Jem/Westgate,608549,"50 Jurong Gateway Rd, Singapore"
-,MINDSville@Napiri,33,TRUE,MINDSville@Napiri,547533,"7 Lor Napiri, Singapore"
+,MINDSville @ Napiri,33,TRUE,MINDSville @ Napiri,547533,"7 Lor Napiri, Singapore"
 ,Learning Point,32,TRUE,,,
 ,Hong Ye Group cleaners,27,TRUE,,,
+,Bukit Merah View Market,25,TRUE,Bukit Merah View Market,151115,"115 Bukit Merah View, Singapore"
 ,McDonald’s delivery riders,23,TRUE,,,
 ,Changi Prison Complex,16,TRUE,Changi Prison Complex,507709,"982 Upper Changi Rd N, Singapore"
 ,506 Hougang Avenue 8,13,TRUE,506 Hougang Avenue 8,530506,"506 Hougang Ave 8, Singapore"
@@ -44,7 +45,7 @@
 ,Case 63892,3,TRUE,,,
 ,Case 63973,3,TRUE,,,
 ,Case 63931,3,TRUE,,,
-,Tan Tock Seng Hospital,48,FALSE,Tan Tock Seng Hospital,308433,"11 Jln Tan Tock Seng, Singapore"
+,Tan Tock Seng Hospital,48,FALSE,Tan Tock Seng Hospital,308433,"11 JALAN TAN TOCK SENG TAN TOCK SENG, Singapore"
 ,ICA officer,11,FALSE,,,
 ,MT ALLI,7,FALSE,,,
 ,Westlite Woodlands Dorm,7,FALSE,Westlite Woodlands Dorm,737723,"2 Woodlands Sector 2, Singapore"
