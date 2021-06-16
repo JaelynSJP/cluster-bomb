@@ -1,8 +1,9 @@
 class LocationsController < ApplicationController
   def index
     @locations = []
-    clusters = Cluster.where.not(location_id: nil).where(is_active: true)
-    clusters.each { |cluster| @locations << cluster.location }
+    @active_clusters = Cluster.where.not(location_id: nil).where(is_active: true)
+    @active_clusters.each { |cluster| @locations << cluster.location }
+   
 
     @markers = @locations.map do |location|
       unless location.latitude.nil? and location.longitude.nil?

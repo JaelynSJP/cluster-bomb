@@ -1,45 +1,61 @@
 
-<div id="map"
-  style="width: 100%; height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-<div class="">
-  <div class="row">
+<div>
+  <div class="row" style="width: 100%; height: 700px">
     <div class="col-3">
-      <div class="card mt-3 tab-card">
-        <div class="card-header tab-card-header">
-          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">Active Cluster</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Inactive Cluster</a>
-            </li>
-          </ul>
+      <div class="tab-card">
+         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="active-cluster-tab" data-toggle="tab" href="#active-cluster" role="tab" aria-controls="active-cluster" aria-selected="true">Active Clusters (<%= @locations.size%>) </a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="inactive-cluster-tab" data-toggle="tab" href="#inactive-cluster" role="tab" aria-controls="inactive-cluster" aria-selected="false">Inactive Clusters (<%= @inactive_clusters.size%>)</a>
+          </li>
+        </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active p-3" id="active-cluster" role="tabpanel" aria-labelledby="active-cluster-tab">
+          <% @active_clusters.each_with_index do |cluster, index| %>
+            <div class="card-text row cluster-name ">
+              <div class="col-1">
+                <p class=""><%= index + 1 %>.</p>
+              </div>
+              <div class="col-8">
+                <p class="cluster" data-lng=<%= cluster.location.longitude %> data-lat=<%= cluster.location.latitude %> ><%= cluster.name %></p>
+              </div>
+              <div class="col-3 p-0">
+                <p class="text-right"><%= pluralize(cluster.num_of_cases, "case") %></p>
+              </div>
+            </div>
+          <% end %>   
         </div>
+        <div class="tab-pane fade p-3" id="inactive-cluster" role="tabpanel" aria-labelledby="inactive-cluster-tab">
+          <% @inactive_clusters.each_with_index do |cluster, index| %>
+            <div class="card-text row">
+              <div class="col-1">
+                <p class="mr-2"><%= index + 1 %>.</p>
+              </div>
+              <div class="col-8">
+                <p><%= cluster.name %></p>
+              </div>
+              <div class="col-3 p-0">
+                <p class="text-right"><%= pluralize(cluster.num_of_cases, "case") %></p>
+              </div>
+            </div>
+          <% end %> 
+        </div>
+      </div>
+      </div>
+     
+    </div>
 
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active p-4" id="one" role="tabpanel" aria-labelledby="one-tab">
-            <h5 class="card-title">Active Cluster Groups</h5>
-            <% @locations.each do |location| %>
-              <ul class="card-text">
-                <li class="cluster" data-lng=<%= location.longitude %> data-lat=<%= location.latitude %> ><%= location.name %></li>
-              </ul>
-            <% end %>            
-          </div>
-          <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
-            <h5 class="card-title">Inactive Cluster Groups</h5>
-            <% @inactive_clusters.each do |cluster| %>
-              <ul class="card-text">
-                <li><%= cluster.name %></li>
-              </ul>
-            <% end %> 
-                    
-          </div>
-        </div>
+
+    <div class="col-9">
+      <div id="map"
+        style="width: 100%; height: 700px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
 </div>
+
+

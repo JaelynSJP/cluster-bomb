@@ -9,7 +9,7 @@ const buildMap = (mapElement) => {
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
-   
+    
   });
 
   map.addControl(new MapboxGeocoder({
@@ -44,7 +44,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-  map.fitBounds(bounds, { padding: 50, maxZoom: 15 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 12 });
 };
 
 const initMapbox = () => {
@@ -65,7 +65,7 @@ const initMapbox = () => {
             cluster.dataset.lng,
             cluster.dataset.lat
           ],
-          zoom: 13,
+          zoom: 16 ,
           essential: true // this animation is considered essential with respect to prefers-reduced-motion
           });
       });
