@@ -78,7 +78,7 @@ const initMapbox = () => {
 
     const clusters = document.querySelectorAll(".cluster")
     clusters.forEach((cluster)=>{
-      flyToPopUp(map,cluster,flying);
+      
       if (cluster.dataset.lat != ""){
         cluster.addEventListener('click',(e)=>{
           map.flyTo({
