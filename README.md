@@ -11,7 +11,7 @@ Citizens are able to quickly have an overview of all active clusters in Singapor
 
 ## 
 
-Given the current pandemic situation, where more clusters are formed day by day in Singapore, citizens are more concerned about the places they have to visit for their daily essential activities. Currently, one can only get information on the clusters in Singapore through social media or news reports. citizens want to know which areas to avoid hence, reducing the possibility of being exposed to the virus. 
+Given the current pandemic situation, where more clusters are formed day by day in Singapore, citizens are more concerned about the places they have to visit for their daily essential activities. Currently, one can only get information on the clusters in Singapore through social media or news reports. Citizens want to know which areas to avoid hence, reducing the possibility of being exposed to the virus. 
 
 
 With Cluster Bomb, citizens can immediately know if the destination they are visiting is a cluster by simply searching for the destination before making the trip. They are also able to have an overview of all current active clusters in Singapore. Additionally, they can zoom into each cluster to view the number of cases in that cluster.
@@ -45,4 +45,4 @@ Open on localhost:3000
 * Push notification to inform citizens of new cluster formed and if they have visited the cluster location 
 * Detect that citizen's current location is a cluster area and notify them  
 * Community driven updates on crowd situation at locations
-* Plan multiple routes and inform citizen about clusters in that route 
+* Allow citizen to input their route and check if there are clusters in that route 
