@@ -16,10 +16,12 @@ Given the current pandemic situation, where more clusters are formed day by day 
 
 With Cluster Bomb, citizens can immediately know if the destination they are visiting is a cluster by simply searching for the destination before making the trip. They are also able to have an overview of all current active clusters in Singapore. Additionally, they can zoom into each cluster to view the number of cases in that cluster.
 
-Having all this information helps citizens make informed decisions when planning their daily essential activities while reducing the possibilities of exposure to the virus. 
+Having all this information helps citizens make informed decisions when planning their daily essential activities while reducing the possibilities of exposure to the virus and preventing the cluster from growing. 
 
 
-## Technologies Used
+## 🖥️ Technologies Used 
+
+
 <p align="left"> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/></a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.ruby-lang.org/en/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="40" height="40"/> </a>  <a href="https://rubyonrails.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg" alt="rails" width="40" height="40"/> </a> 
 <a href="https://www.postgresql.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a><a href="https://heroku.com" target="_blank"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a>   
 </p>
@@ -27,7 +29,7 @@ Having all this information helps citizens make informed decisions when planning
 <ul><li><h4>Mapbox GL JS</h4></li></ul>
 
 
-## Setup
+## 🛠️ Setup 
 
 ```
 Run the following commands in the project directory:
@@ -40,7 +42,7 @@ $ rails s
 Open on localhost:3000
 ```
 
-## Future Features 
+## 💡 Future Features 
 
 * Push notification to inform citizens of new cluster formed and if they have visited the cluster location 
 * Detect that citizen's current location is a cluster area and notify them  
