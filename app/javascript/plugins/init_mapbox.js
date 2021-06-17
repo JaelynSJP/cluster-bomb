@@ -9,13 +9,13 @@ const buildMap = (mapElement) => {
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
-    
   });
 
   map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl
   }));
+
   return map
 };
 
@@ -45,28 +45,29 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 12 });
 };
 
-const flyToPopUp = (map,cluster,flying)=>{
-  
-  map.on('moveend', (e)=>{
-    const popup =  new mapboxgl.Popup()
-    if(flying) {
-      popup
-        .setLngLat([cluster.dataset.lng, cluster.dataset.lat])
-        .setHTML(cluster.dataset.infowindow)
-        .addTo(map);
-    };
-  });
-};
-
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  let flying = false;
 
   if (mapElement) {
+    let flying = false;
+    let lat ="";
+    let lng = "";
+    let infoWindow ="";
     const map = buildMap(mapElement);
+    
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+    
+    map.on('moveend', (e)=>{
+      if(flying) {
+        new mapboxgl.Popup({closeOnMove: true,closeOnClick: true})
+          .setLngLat([lng, lat])
+          .setHTML(infoWindow)
+          .addTo(map);
+        map.fire('flyend');
+      };
+    });
 
     map.on('flystart', ()=>{
       flying = true;
@@ -75,21 +76,11 @@ const initMapbox = () => {
       flying = false;
     });
 
-    map.on('closeAllPopups', () => {
-      popup.remove();
-    });
-
     const clusters = document.querySelectorAll(".cluster")
     clusters.forEach((cluster)=>{
+      flyToPopUp(map,cluster,flying);
       if (cluster.dataset.lat != ""){
         cluster.addEventListener('click',(e)=>{
-          console.log(e);
-          const tooltip = document.getElementsByClassName('mapboxgl-popup');
-          if (tooltip.length) {
-            console.log(tooltip[0]);
-            tooltip[0].remove();
-          }
-        
           map.flyTo({
             center: [
               cluster.dataset.lng,
@@ -98,22 +89,14 @@ const initMapbox = () => {
             zoom: 16 ,
             essential: true // this animation is considered essential with respect to prefers-reduced-motion
           });
-          
-          map.fire('flystart'); 
-          flyToPopUp(map,cluster,flying);
-          map.fire('flyend');
-          
-          
+          lng = cluster.dataset.lng;
+          lat = cluster.dataset.lat;
+          infoWindow = cluster.dataset.infowindow;
+          map.fire('flystart');
         });
       } 
     });
-    
-
-    
-
   };
-
-  
 };
 
 export { initMapbox };
