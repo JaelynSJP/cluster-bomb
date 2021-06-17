@@ -39,15 +39,3 @@
   line-height: 1.6;
 }
 
-//Media Query 
-@media (max-width: 700px) { 
-  .cluster-name{
-    &:hover{
-      color: blue;
-      cursor: pointer;
-  
-    }
-    font-size: 5px;
-  }
-
-}
